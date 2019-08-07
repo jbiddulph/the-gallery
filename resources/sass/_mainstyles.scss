@@ -1,0 +1,38 @@
+#sidebar {
+    background-color: rgba(44,62,80,0.9);
+    width:240px;
+    height: -webkit-fill-available;
+    h3 {
+        color: #8ed300;
+        margin-top:20px;
+        margin-left:10px;
+    }
+    #sidebar-nav {
+        padding: 0px;
+        margin:0px;
+        list-style-type: none;
+        font-size: 18px;
+        min-height:500px;
+        li {
+            border-bottom: 1px solid rgba(44,62,80,1);
+            a {
+                padding:10px;
+                display: flex;
+                color: #fff;
+            }
+            a:hover {
+                color: rgba(44,62,80,0.9);
+                text-decoration: none;
+            }
+        }
+        li:hover {
+            background-color: #F8FAFC;
+        }
+    }
+}
+
+.category-header {
+    h3 {
+        margin-top:20px;
+    }
+}
