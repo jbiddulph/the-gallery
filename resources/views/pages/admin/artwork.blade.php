@@ -4,42 +4,41 @@
     @include('layouts.inc.adminsidebar')
     <div class="col-md-8">
         <div class="category-header">
+            <a href="{{ route('artwork.create') }}"><button class="btn btn-sm btn-primary float-right">Create</button></a>
             <h3>Artwork</h3>
-            <form action="" method="post">@csrf
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" name="categoryName" class="form-control">
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-sm">Add Artwork</button>
-                </div>
-            </form>
 
-            <div class="categories-table table-responsive">
-{{--                @if(count($categories)>0)--}}
-{{--                    <table class="table">--}}
-{{--                        <tr>--}}
-{{--                            <th>ID</th>--}}
-{{--                            <th>Name</th>--}}
-{{--                            <th>Author</th>--}}
-{{--                            <th>Created at</th>--}}
-{{--                            <th>Updated at</th>--}}
-{{--                            <th>Edit</th>--}}
-{{--                            <th>Remove</th>--}}
-{{--                        </tr>--}}
-{{--                        @foreach($categories as $i=>$category)--}}
-{{--                            <tr>--}}
-{{--                                <td>{{ $i + 1 }}</td>--}}
-{{--                                <td>{{ $category->name }}</td>--}}
-{{--                                <td>{{ $category->author }}</td>--}}
-{{--                                <td>{{ $category->created_at }}</td>--}}
-{{--                                <td>{{ $category->updated_at }}</td>--}}
-{{--                                <td><a data-js="open-edit"><span id="{{ $category->id }}" class="btn btn-warning btn-sm">Edit</span></a></td>--}}
-{{--                                <td><a data-js="open-remove"><span id="{{ $category->id }}" class="btn btn-danger btn-sm">Delete</span></a></td>--}}
-{{--                            </tr>--}}
-{{--                        @endforeach--}}
-{{--                    </table>--}}
-{{--                @endif--}}
+            <div class="artwork-table table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Photo</th>
+                        <th>title</th>
+                        <th>size</th>
+                        <th>category</th>
+                        <th>artistsnotes</th>
+                        <th>Created</th>
+                        <th>Updated</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @if($artworks)
+                        @foreach($artworks as $artwork)
+                            <tr>
+                                <td><a href="/images/gallery2/{{$artwork->photo ? $artwork->photo->file : 'default.jpg'}}" data-lightbox="/images/gallery2/{{$artwork->name}}" data-title="{{$artwork->title}}"><img width="100" src="/images/gallery2/{{$artwork->photo ? $artwork->photo->file : 'default.jpg'}}" alt=""></a></td>
+                                <td>{{$artwork->title}}</td>
+                                <td>{{$artwork->size}}</td>
+                                <td>{{$artwork->category}}</td>
+                                <td>{{$artwork->artistsnotes}}</td>
+                                <td>{{$artwork->created_at->diffForHumans()}}</td>
+                                <td>{{$artwork->updated_at->diffForHumans()}}</td>
+{{--                                <td><a href="{{Route('artwork2.edit', $artwork->id)}}" class="btn btn-info">Edit</a></td>--}}
+                            </tr>
+                        @endforeach
+                    @endif
+                    </tbody>
+                </table>
+                {{ $artworks->links() }}
             </div>
         </div>
     </div>
