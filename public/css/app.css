@@ -10687,3 +10687,70 @@ a.text-dark:focus {
   margin-top: 20px;
 }
 
+.grid-item {
+  width: 200px;
+  margin-bottom: 20px;
+  height: auto;
+  display: block;
+}
+
+.grid-item p {
+  font-weight: 300;
+}
+
+main {
+  background-color: #eeeeee;
+}
+
+.card {
+  background-color: slategray;
+  background-clip: border-box;
+  border: 1px solid #eeeeee;
+  border-radius: 0rem;
+  color: azure;
+}
+
+.navbar {
+  margin-bottom: 0px !important;
+  background-color: darkslategray !important;
+  border-radius: 0px !important;
+  color: #ffffff !important;
+}
+
+.grid-item {
+  width: 234px;
+}
+
+.card-body h5 {
+  margin-top: 0px;
+}
+
+ul.filtrz {
+  padding-left: 0px;
+}
+
+ul.filtrz li {
+  list-style-type: none;
+  display: inline-flex;
+}
+
+.searchBar {
+  width: 20%;
+  border-radius: 3px;
+  border: 1px solid lightslategray;
+  padding: 4px;
+}
+
+.searchBar:focus {
+  box-shadow: 0px 0px 5px;
+}
+
+.right-search {
+  width: auto;
+  display: inline-flex;
+}
+
+.right-search select {
+  width: auto;
+}
+

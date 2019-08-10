@@ -17,6 +17,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/lightbox.min.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 </head>
 <body>
     <div id="app">
@@ -76,9 +77,49 @@
         </main>
     </div>
     <!-- Scripts -->
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script
+        src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/jquery.filterizr.min.js') }}" defer></script>
     <script src="{{ asset('js/lightbox.min.js') }}" defer></script>
-    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+
+
+{{--    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>--}}
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // var filterizd = $('.filter-container').filterizr({
+            //
+            // });
+             const filterizr = new Filterizr('.filter-container');
+            // $('.filter-container').filterizr();
+
+            filterizr.setOptions({layout: 'sameWidth'});
+        });
+    </script>
+{{--    <script>--}}
+{{--        $('.grid').masonry({--}}
+{{--            // options...--}}
+{{--            itemSelector: '.grid-item',--}}
+{{--            columnWidth: 200,--}}
+{{--            gutter: 20--}}
+{{--        });--}}
+{{--        var freeMasonry = $('.grid');--}}
+
+{{--        freeMasonry.imagesLoaded()--}}
+{{--            .done(function(){--}}
+{{--                freeMasonry.masonry({--}}
+{{--                    itemSelector: 'img'--}}
+{{--                });--}}
+{{--            });--}}
+{{--    </script>--}}
+
+
 </body>
 </html>
