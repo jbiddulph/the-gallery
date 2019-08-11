@@ -38,3 +38,4 @@ Route::get('/admin', 'PagesController@index')->name('admin')->middleware('admin'
     Route::get('/admin/add-artwork', 'AdminartworkController@index')->name('artwork.index')->middleware('admin');
     Route::get('/admin/add-artwork/create', 'AdminartworkController@create')->name('artwork.create')->middleware('admin');
     Route::post('/admin/add-artwork/create', 'AdminartworkController@store')->name('artwork.store')->middleware('admin');
+Route::get('/admin/add-artwork/edit/{id}', 'AdminartworkController@edit')->name('artwork.edit')->middleware('admin');

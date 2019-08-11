@@ -18,7 +18,7 @@
                         <th>artistsnotes</th>
                         <th>Created</th>
                         <th>Updated</th>
-                        <th>&nbsp;</th>
+                        <th>Edit</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -32,7 +32,7 @@
                                 <td>{{$artwork->artistsnotes}}</td>
                                 <td>{{$artwork->created_at->diffForHumans()}}</td>
                                 <td>{{$artwork->updated_at->diffForHumans()}}</td>
-{{--                                <td><a href="{{Route('artwork2.edit', $artwork->id)}}" class="btn btn-info">Edit</a></td>--}}
+                                <td><a href="{{Route('artwork.edit', $artwork->id)}}" class="btn btn-info">Edit</a></td>
                             </tr>
                         @endforeach
                     @endif

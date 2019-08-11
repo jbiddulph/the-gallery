@@ -5,11 +5,12 @@
     <div class="col-md-8">
         <div class="category-header">
             <a href="{{ route('artwork.index') }}"><button class="btn btn-sm btn-warning float-right">Artwork</button></a>
-            <h3>Create Artwork</h3>
+            <h3>Edit Artwork</h3>
+            <img src="/images/gallery2/{{$artworks->photo ? $artworks->photo->file : 'default.jpg'}}" alt="{{$artworks->title}}" class="img-responsive img-rounded" width="200">
             <form action="{{ route('artwork.store') }}" method="POST" enctype="multipart/form-data">@csrf
                 <div class="form-group">
                     <label for="name">Title</label>
-                    <input type="text" name="title" class="form-control @error('title') is-invalid @enderror">
+                    <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" value="{{$artworks->title}}">
                     @error('title')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -50,7 +51,7 @@
                 </div>
                 <div class="form-group">
                     <label for="size">Size</label>
-                    <input type="text" name="size" class="form-control @error('size') is-invalid @enderror">
+                    <input type="text" name="size" class="form-control @error('size') is-invalid @enderror" value="{{$artworks->size}}">
                     @error('size')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -59,7 +60,7 @@
                 </div>
                 <div class="form-group">
                     <label for="notes">Artist notes</label>
-                    <textarea name="artistsnotes" class="form-control @error('artistsnotes') is-invalid @enderror" cols="30" rows="10"></textarea>
+                    <textarea name="artistsnotes" class="form-control @error('artistsnotes') is-invalid @enderror" cols="30" rows="10">{{$artworks->artistsnotes}}</textarea>
                     @error('artistsnotes')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>

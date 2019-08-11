@@ -47,7 +47,10 @@ class AdminartworkController extends Controller
     {
         //
         $this->validate($request,[
-            'title'=>'required|min:3'
+            'title'=>'required|min:3',
+            'size' => 'required',
+//            'photo_id' => 'required|mimes:jpeg,jpg,gif,png',
+            'artistsnotes' => 'required|min:3',
 //            'photo'=>'required|mimes:jpeg,jpg,png,gif'
         ]);
         $input = $request->all();
@@ -86,6 +89,9 @@ class AdminartworkController extends Controller
     public function edit($id)
     {
         //
+        $artworks = Artwork2::findOrFail($id);
+        //
+        return view('pages.admin.artwork-edit', compact('artworks'));
     }
 
     /**
@@ -95,9 +101,21 @@ class AdminartworkController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ArtworkEditRequest $request, $id)
     {
         //
+        $artwork = Artwork2::findOrFail($id);
+        $input = $request->all();
+
+        if($file = $request->file('photo_id')){
+            $name = time().$file->getClientOriginalName();
+            $file->move('images/gallery2', $name);
+            $photo = Photo::create(['file'=>$name]);
+            $input['photo_id'] = $photo->id;
+        }
+        $artwork->update($input);
+
+        return redirect('/admin/artwork2');
     }
 
     /**
@@ -109,5 +127,13 @@ class AdminartworkController extends Controller
     public function destroy($id)
     {
         //
+        $artworks = Artwork2::findOrFail($id);
+
+        $artworks->delete();
+
+        Session::flash('deleted_artwork', 'The user has been deleted');
+
+
+        return redirect('/admin/artwork2');
     }
 }
