@@ -20,8 +20,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-js-type="modal-submit">OK</button>
+                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger btn-sm" data-js-type="modal-submit">OK</button>
             </div>
         </div>
     </div>
@@ -47,8 +47,8 @@
             </div>
             <div class="modal-footer">
                 <form id="editForm">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">OK</button>
+                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger btn-sm">OK</button>
                 </form>
                 <!-- -->
             </div>

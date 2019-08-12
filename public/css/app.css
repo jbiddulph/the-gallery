@@ -10721,6 +10721,12 @@ main {
   width: 234px;
 }
 
+.card h5 {
+  background-color: #333333;
+  margin: 0px;
+  padding: 5px;
+}
+
 .card-body h5 {
   margin-top: 0px;
 }
@@ -10732,6 +10738,10 @@ ul.filtrz {
 ul.filtrz li {
   list-style-type: none;
   display: inline-flex;
+}
+
+ul.filtrz .btn {
+  border-radius: 0px;
 }
 
 .searchBar {

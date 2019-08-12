@@ -5,15 +5,15 @@
 <div class="container-fluid">
     <div class="col-md-12 d-flex flex-wrap justify-content-between">
         <ul class="filtrz">
-            <li data-filter="all"> <button class="btn btn-sm btn-success">All items</button> </li>
+            <li data-filter="all"> <button class="btn btn-success">All items</button> </li>
             @foreach(App\Category::all() as $cat)
-                <li data-filter="{{$cat->name}}"> <button class="btn btn-sm btn-info">{{$cat->name}}</button></li>
+                <li data-filter="{{$cat->name}}"> <button class="btn btn-info">{{$cat->name}}</button></li>
             @endforeach
             <!-- For a shuffle control add -->
-            <li data-shuffle><button class="btn btn-sm btn-warning">Shuffle items</button> </li>
+            <li data-shuffle><button class="btn btn-warning">Shuffle items</button> </li>
             <!-- For sorting controls add -->
-            <li data-sortAsc><button class="btn btn-sm btn-success">Ascending</button></li>
-            <li data-sortDesc><button class="btn btn-sm btn-success">Descending</button></li>
+            <li data-sortAsc><button class="btn btn-success">Ascending</button></li>
+            <li data-sortDesc><button class="btn btn-success">Descending</button></li>
         </ul>
         <!-- To choose the value by which you want to sort add -->
         <div class="form-group right-search">
@@ -33,9 +33,10 @@
 
                 <div class="grid-item filtr-item" data-category="{{$artwork->category}}" data-sort="{{$artwork->title}}">
                     <div class="card">
+                        <h5 class="card-title">{{$artwork->title}}</h5>
                         <a href="/images/gallery2/{{$artwork->photo ? $artwork->photo->file : 'default.jpg'}}" data-lightbox="/images/gallery2/{{$artwork->name}}" data-title="{{$artwork->title}}"><img width="175" class="card-img-top" src="/images/gallery2/{{$artwork->photo ? $artwork->photo->file : 'default.jpg'}}" alt=""></a>
                         <div class="card-body">
-                            <h5 class="card-title">{{$artwork->title}}</h5>
+
                             <h6>{{$artwork->size}}</h6>
                             <p>{{str_limit($artwork->artistsnotes, 50)}}</p>
                             <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#artwork{{$artwork->id}}">

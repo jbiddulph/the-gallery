@@ -115,7 +115,11 @@ class AdminartworkController extends Controller
         }
         $artwork->update($input);
 
-        return redirect('/admin/artwork2');
+        //
+        $artworks = Artwork2::findOrFail($id);
+        //
+//        return view('pages.admin.artwork-edit', compact('artworks'));
+        return redirect()->back()->with('message', 'Artwork edited successfully');
     }
 
     /**
@@ -124,16 +128,31 @@ class AdminartworkController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
         //
-        $artworks = Artwork2::findOrFail($id);
+        $id = $request->get('id');
+        $artworks = Artwork2::find($id);
 
         $artworks->delete();
 
-        Session::flash('deleted_artwork', 'The user has been deleted');
+        return redirect()->back()->with('message', 'Artwork deleted successfully');
+    }
 
+    public function trash() {
+        $artworks = Artwork2::onlyTrashed()->paginate(20);
+        return view('pages.admin.artwork-trash', compact('artworks'));
+    }
 
-        return redirect('/admin/artwork2');
+    public function restore($id) {
+        $artworks = Artwork2::onlyTrashed()->where('id',$id)->restore();
+        return redirect()->back()->with('message', 'Artwork restored successfully');
+    }
+
+    public function toggle($id){
+        $artwork = Artwork2::find($id);
+        $artwork->status = !$artwork->status;
+        $artwork->save();
+        return redirect()->back()->with('message', 'Status updated successfully');
     }
 }

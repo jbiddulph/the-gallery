@@ -116,7 +116,8 @@ class CategoryController extends Controller
         $category->name = $request->name;
         //Updating Category
         $category->update();
-        session()->flash('Success', 'Category Name changed successfully to : ' . $category->name);
-        return json_encode(['Success' => 'Category Name changed successfully to : ' . $category->name]);
+//        session()->flash('Success', 'Category Name changed successfully to : ' . $category->name);
+//        return json_encode(['Success' => 'Category Name changed successfully to : ' . $category->name]);
+        return redirect()->back()->with('message', 'Category successfully changed');
     }
 }
