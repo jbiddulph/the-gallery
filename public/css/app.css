@@ -10705,7 +10705,7 @@ main {
 .card {
   background-color: slategray;
   background-clip: border-box;
-  border: 1px solid #eeeeee;
+  border: 3px solid #eeeeee;
   border-radius: 0rem;
   color: azure;
 }

@@ -42,6 +42,14 @@
                             <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#artwork{{$artwork->id}}">
                                 view
                             </button>
+                            @guest
+                                @else
+                                @if(Auth::user()->name === 'John Biddulph')
+                                    <a href="{{Route('artwork.edit', $artwork->id)}}" class="btn btn-warning btn-sm">Edit</a>
+                                    @else
+                                    x
+                                @endif
+                            @endguest
                         </div>
                     </div>
                 </div>

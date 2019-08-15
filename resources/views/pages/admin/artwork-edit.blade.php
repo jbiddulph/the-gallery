@@ -10,7 +10,7 @@
             <a href="{{ route('artwork.index') }}"><button class="btn btn-sm btn-warning float-right">Artwork</button></a>
             <h3>Edit Artwork</h3>
             <img src="/images/gallery2/{{$artworks->photo ? $artworks->photo->file : 'default.jpg'}}" alt="{{$artworks->title}}" class="img-responsive img-rounded" width="200">
-            <form action="/admin/add-artwork/update/{{$artworks->id}}" method="POST" enctype="multipart/form-data">@csrf
+            <form action="/admin/artwork/update/{{$artworks->id}}" method="POST" enctype="multipart/form-data">@csrf
                 <input type="hidden" name="id" value="{{$artworks->id}}">
                 <div class="form-group">
                     <label for="name">Title</label>

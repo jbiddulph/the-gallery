@@ -94,11 +94,7 @@
     <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
     <script>
         $(document).ready(function(){
-            // var filterizd = $('.filter-container').filterizr({
-            //
-            // });
              const filterizr = new Filterizr('.filter-container');
-            // $('.filter-container').filterizr();
 
             filterizr.setOptions({layout: 'sameWidth'});
         });
