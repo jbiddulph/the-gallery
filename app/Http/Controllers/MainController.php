@@ -20,6 +20,14 @@ class MainController extends Controller
         return view('main', compact('artworks'));
     }
 
+    public function home()
+    {
+
+
+        //
+        return view('home');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
