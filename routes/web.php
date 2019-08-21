@@ -17,7 +17,9 @@
 
 Auth::routes();
 
-Route::get('/', 'MainController@index')->name('home');
+Route::get('/', 'MainController@home')->name('home');
+
+Route::get('/gallery', 'MainController@index')->name('gallery');
 
 //Route::get('/admin', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
@@ -35,4 +37,12 @@ Route::get('/admin', 'PagesController@index')->name('admin')->middleware('admin'
     Route::post('/editCategory', 'CategoryController@editCategory')->name('category.edit')->middleware('admin');
 
     //Artwork
-    Route::get('/artwork', 'AdminartworkController@index')->name('artwork.index')->middleware('admin');
+    Route::get('/admin/artwork', 'AdminartworkController@index')->name('artwork.index')->middleware('admin');
+    Route::get('/admin/artwork/create', 'AdminartworkController@create')->name('artwork.create')->middleware('admin');
+    Route::post('/admin/artwork/create', 'AdminartworkController@store')->name('artwork.store')->middleware('admin');
+    Route::get('/admin/artwork/edit/{id}', 'AdminartworkController@edit')->name('artwork.edit')->middleware('admin');
+    Route::post('/admin/artwork/update/{id}', 'AdminartworkController@update')->name('artwork.update')->middleware('admin');
+    Route::post('/admin/artwork/destroy', 'AdminartworkController@destroy')->name('artwork.delete')->middleware('admin');
+    Route::get('/admin/artwork/trash', 'AdminartworkController@trash')->name('artwork.trash')->middleware('admin');
+    Route::get('/admin/artwork/{id}/trash', 'AdminartworkController@restore')->name('artwork.restore')->middleware('admin');
+    Route::get('/admin/artwork/{id}/toggle', 'AdminartworkController@toggle')->name('artwork.toggle')->middleware('admin');

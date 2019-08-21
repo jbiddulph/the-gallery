@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Artwork2;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
@@ -14,7 +14,18 @@ class MainController extends Controller
     public function index()
     {
         //
-        return view('main');
+        $artworks = Artwork2::where('status', '1')->paginate(500);
+
+        //
+        return view('main', compact('artworks'));
+    }
+
+    public function home()
+    {
+
+
+        //
+        return view('home');
     }
 
     /**
