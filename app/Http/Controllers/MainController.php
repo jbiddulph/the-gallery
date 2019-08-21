@@ -14,7 +14,7 @@ class MainController extends Controller
     public function index()
     {
         //
-        $artworks = Artwork2::paginate(500);
+        $artworks = Artwork2::where('status', '1')->paginate(500);
 
         //
         return view('main', compact('artworks'));

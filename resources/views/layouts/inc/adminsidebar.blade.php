@@ -2,11 +2,10 @@
     <h3>Admin Menu</h3>
     <div class="side-container">
         <ul id="sidebar-nav">
-            <li><a href="/">Dashboard</a></li>
+            <li><a href="/">Home</a></li>
             <li><a href="{{route('artwork.index')}}">Artwork</a></li>
             <li><a href="{{route('artwork.trash')}}">Trashed</a></li>
             <li><a href="{{route('category.index')}}">Categories</a></li>
-            <li><a href="#">Admin</a></li>
             <li><a class="dropdown-item" href="{{ route('logout') }}"
                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
